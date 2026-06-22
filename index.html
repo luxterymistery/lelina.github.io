@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ====== SEO / превью ссылки (важно для рассылки) ====== -->
+<title>lelina — авторы для брендов · бьюти / мода / лайфстайл</title>
+<meta name="description" content="Подбор блогеров для интеграций: бьюти, мода, лайфстайл, спорт. Разовые интеграции, пакетные размещения и UGC. Эля — менеджер блогеров.">
+<meta property="og:title" content="lelina — авторы для брендов">
+<meta property="og:description" content="Состав авторов для интеграций: бьюти, мода, лайфстайл, спорт. Кейсы и прайс — по запросу.">
+<meta property="og:type" content="website">
+<!-- ДОБАВЬ свою картинку-превью (1200×630), чтобы ссылка в TG/почте красиво превьюшилась: -->
+<meta property="og:image" content="preview.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Unbounded:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#EDEDEC;          /* холодный «студийный» светло-серый, не крем */
+    --card:#FFFFFF;
+    --ink:#161415;
+    --soft:#5E5852;        /* вторичный текст */
+    --muted:#908A84;       /* подписи/мета */
+    --line:#E2E1DD;        /* хайрлайны */
+    --accent:#C2185B;      /* единственный яркий цвет — только на действиях */
+    --accent-d:#A6134E;
+  }
+  *{box-sizing:border-box;margin:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    line-height:1.5;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+
+  /* ---- верхняя планка ---- */
+  .bar{display:flex;align-items:center;justify-content:space-between;padding:22px 0}
+  .brand{font-family:'Unbounded','Inter',sans-serif;font-weight:700;font-size:1.25rem;letter-spacing:-.01em;text-decoration:none}
+  .brand .dot{color:var(--accent)}
+
+  .btn{
+    display:inline-flex;align-items:center;gap:.5em;
+    font-weight:600;font-size:.9rem;padding:.72em 1.2em;border-radius:999px;
+    background:var(--accent);color:#fff;text-decoration:none;border:1px solid var(--accent);
+    transition:transform .15s ease,background .2s ease,border-color .2s ease;white-space:nowrap;cursor:pointer;
+  }
+  .btn:hover{background:var(--accent-d);border-color:var(--accent-d);transform:translateY(-1px)}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn.ghost:hover{background:transparent;border-color:var(--ink);transform:translateY(-1px)}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+
+  /* ---- герой ---- */
+  .hero{padding:46px 0 34px}
+  .eyebrow{font-size:.72rem;font-weight:600;text-transform:uppercase;letter-spacing:.2em;color:var(--accent);margin-bottom:18px}
+  .hero h1{font-family:'Unbounded','Inter',sans-serif;font-weight:800;font-size:clamp(2.7rem,7.5vw,5.1rem);line-height:.96;letter-spacing:-.025em;max-width:15ch;margin-bottom:20px}
+  .lead{font-size:clamp(1rem,2.2vw,1.16rem);color:var(--soft);max-width:54ch;line-height:1.55;margin-bottom:24px}
+  .meta{font-size:.85rem;color:var(--muted);margin-bottom:28px}
+  .meta strong{color:var(--ink);font-weight:600}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .byline{margin-top:22px;font-size:.82rem;color:var(--muted)}
+  .byline b{color:var(--ink);font-weight:600}
+
+  /* ---- фильтры ---- */
+  .controls{border-top:1px solid var(--line);padding-top:28px;margin-top:8px}
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .chip{font-weight:600;font-size:.85rem;padding:.56em 1.05em;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--soft);cursor:pointer;transition:all .15s ease}
+  .chip:hover{border-color:#cfcec9;color:var(--ink)}
+  .chip.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .field{display:flex;align-items:center;gap:9px;margin-bottom:18px}
+  .field label{font-size:.78rem;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+  .field select{font-family:inherit;font-size:.85rem;color:var(--ink);padding:.5em 2.2em .5em .9em;border:1px solid var(--line);border-radius:999px;background:#fff;cursor:pointer}
+  .countline{font-size:.8rem;color:var(--muted);margin-bottom:26px}
+
+  /* ---- сетка карточек ---- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(238px,1fr));gap:22px}
+  @media(min-width:900px){.grid{gap:26px}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:transform .18s ease,box-shadow .18s ease;animation:rise .5s ease both}
+  .card:hover{transform:translateY(-4px);box-shadow:0 18px 42px -26px rgba(20,18,20,.45)}
+  .card.hide{display:none}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+  .portrait{aspect-ratio:4/5;background:var(--tint,#E7E3E5);display:grid;place-items:center;position:relative;overflow:hidden}
+  .portrait img{width:100%;height:100%;object-fit:cover}
+  .mono{font-family:'Unbounded','Inter',sans-serif;font-weight:700;font-size:clamp(3rem,6vw,4.4rem);color:rgba(20,18,20,.15);user-select:none;transition:transform .25s ease}
+  .card:hover .mono{transform:scale(1.05)}
+
+  .slip{padding:16px 16px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .who{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+  .name{font-family:'Unbounded','Inter',sans-serif;font-weight:700;font-size:1.1rem;letter-spacing:-.01em;line-height:1.1}
+  .handle{font-size:.8rem;color:var(--muted)}
+  .geo{font-size:.67rem;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:600}
+  .niches{font-size:.85rem;color:var(--soft);line-height:1.45}
+  .stats{display:flex;flex-direction:column;gap:4px;font-size:.75rem;color:var(--muted);border-top:1px dashed var(--line);padding-top:9px;margin-top:2px}
+  .stat-row{white-space:nowrap}
+  .stats b{color:var(--ink);font-weight:600}
+  .links{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:6px}
+  .lnk{font-weight:600;font-size:.78rem;padding:.42em .72em;border:1px solid var(--line);border-radius:8px;color:var(--soft);text-decoration:none;display:inline-flex;align-items:center;gap:.35em;transition:all .15s ease}
+  .lnk:hover{border-color:var(--accent);color:var(--accent)}
+  .lnk .ext{opacity:.55;font-size:.9em}
+  .req{font-weight:600;font-size:.82rem;color:var(--accent);text-decoration:none;margin-top:4px;display:inline-flex;align-items:center;gap:.3em;align-self:flex-start}
+  .req:hover{text-decoration:underline}
+
+  /* ---- нижний CTA ---- */
+  .foot-cta{margin-top:62px;padding:clamp(30px,5vw,52px);background:#fff;border:1px solid var(--line);border-radius:22px;text-align:center}
+  .foot-cta h2{font-family:'Unbounded','Inter',sans-serif;font-weight:700;font-size:clamp(1.5rem,3.5vw,2.1rem);letter-spacing:-.01em;margin-bottom:12px}
+  .foot-cta p{color:var(--soft);max-width:48ch;margin:0 auto 24px}
+  .foot-cta .cta-row{justify-content:center}
+  .foot{text-align:center;padding:36px 0 48px;font-size:.8rem;color:var(--muted)}
+  .foot a{text-decoration:none}.foot a:hover{text-decoration:underline}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="bar">
+    <a class="brand" href="#">lelina<span class="dot">.</span></a>
+  </header>
+
+  <section class="hero">
+    <p class="eyebrow">Подбор блогеров для брендов</p>
+    <h1>Авторы для ваших интеграций</h1>
+    <p class="lead">Бьюти, мода и спорт. Разовые интеграции, пакетные размещения и UGC. Охваты и площадки — в карточках. Кейсы и прайс пришлю по запросу.</p>
+    <p class="meta"><strong id="m-count">8</strong> авторов&nbsp;&nbsp;·&nbsp;&nbsp;<strong>220K+</strong> суммарная аудитория&nbsp;&nbsp;·&nbsp;&nbsp;Москва · Санкт-Петербург · Воронеж · Симферополь</p>
+    <div class="cta-row">
+      <a class="btn" href="https://t.me/lelinajj" target="_blank" rel="noopener">Запросить кейсы и прайс →</a>
+      <a class="btn ghost" href="https://t.me/lelina_bloggers" target="_blank" rel="noopener">Канал с обновлениями</a>
+    </div>
+    <p class="byline"><b>Эля</b> — менеджер блогеров · <a href="https://t.me/lelinajj" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none">@lelinajj</a></p>
+  </section>
+
+  <section class="controls">
+    <div class="filters" id="filters">
+      <button class="chip active" data-niche="all">Все</button>
+      <button class="chip" data-niche="beauty">Бьюти</button>
+      <button class="chip" data-niche="hair">Уход и укладки</button>
+      <button class="chip" data-niche="fashion">Мода</button>
+      <button class="chip" data-niche="sport">Спорт</button>
+      <button class="chip" data-niche="ugc">UGC</button>
+    </div>
+    <div class="field">
+      <label for="city">Город</label>
+      <select id="city">
+        <option value="all">Все города</option>
+        <option value="msk">Москва</option>
+        <option value="spb">Санкт-Петербург</option>
+        <option value="vrn">Воронеж</option>
+        <option value="sim">Симферополь</option>
+      </select>
+    </div>
+    <p class="countline" id="count"></p>
+  </section>
+
+  <main class="grid" id="grid"></main>
+
+  <footer class="foot">
+    lelina · подбор блогеров для брендов · <a href="https://t.me/lelinajj" target="_blank" rel="noopener">@lelinajj</a>
+  </footer>
+</div>
+
+<script>
+/* =========================================================================
+   РЕДАКТИРУЕШЬ ТОЛЬКО ЭТОТ МАССИВ. Страница рендерится из него.
+   - portrait: ссылка на портрет (4:5, лучше вертикальный кадр). null = заглушка-монограмма.
+                Борд сделан под фото — добавь портреты, и он заиграет.
+   - stats:   { tiktok:'50K', tiktokViews:'8K', instagram:'30K', instagramViews:'25K' } — у каждой площадки
+                свои подписчики и медиана просмотров. Каждая площадка = отдельная строка (TikTok сверху).
+                Пустое {} = блок не показывается. БЕЗ ЦИФР карточка проходная — это главное.
+   - tags:    для фильтра. Доступные: beauty, hair, fashion, sport, ugc.
+   - city:    msk / spb / vrn / sim (совпадает со списком в <select>).
+   - links:   убираешь/добавляешь площадки — лишние просто не рисуются.
+   ========================================================================= */
+const BLOGGERS = [
+  { name:'Лиза', handle:'@vanvial', city:'msk', geo:'Москва',
+    niches:'Бьюти · уход за волосами · укладки · обзоры · разговорный',
+    tags:['beauty','hair'], portrait:'vanvial.jpg', stats:{ tiktok:'51.7K', tiktokViews:'6K', instagram:'49K', instagramViews:'21.5K' },
+    links:{ tiktok:'https://tiktok.com/@vanvial', instagram:'https://instagram.com/vanvial', youtube:'https://youtube.com/@vanvial', telegram:'https://t.me/neyalaya' } },
+
+  { name:'Софа', handle:'@sofikojonjua', city:'vrn', geo:'Воронеж',
+    niches:'Бьюти · макияж · обзоры продуктов',
+    tags:['beauty'], portrait:'sofikojonjua.jpg', stats:{ tiktok:'49.7K', tiktokViews:'5.8K' },
+    links:{ tiktok:'https://tiktok.com/@sofikojonjua', instagram:'https://instagram.com/sofiko.djondjua', youtube:'https://youtube.com/@provjix', telegram:'https://t.me/sofikojonjua' } },
+
+  { name:'Тая', handle:'@tvoya.tayya', city:'spb', geo:'Санкт-Петербург',
+    niches:'Спорт · бьюти · влоги · GRWM · питание · разговорный',
+    tags:['beauty','sport'], portrait:'tvoya.tayya.jpg', stats:{ instagram:'40.9K', instagramViews:'31K' },
+    links:{ tiktok:'https://tiktok.com/@tvoya.tayaa', instagram:'https://instagram.com/tvoya.tayya', telegram:'https://t.me/tvoyatayya' } },
+
+  { name:'ГлэдЛи', handle:'@glaaadly', city:'sim', geo:'Симферополь',
+    niches:'Бьюти · уход за волосами · укладки · влоги · разговорный',
+    tags:['beauty','hair'], portrait:'glaaadly.jpg', stats:{ tiktok:'17.2K', tiktokViews:'10.2K' },
+    links:{ tiktok:'https://tiktok.com/@glaaadly', telegram:'https://t.me/gladlyyyy' } },
+
+  { name:'Александра', handle:'@ssmiliukova', city:'spb', geo:'Санкт-Петербург',
+    niches:'Бьюти · укладки · стиль · парфюм · разговорный',
+    tags:['beauty','hair','fashion'], portrait:'ssmiliukova.jpg', stats:{ tiktok:'13.3K', tiktokViews:'10.1K', instagram:'22.5K', instagramViews:'16K' },
+    links:{ tiktok:'https://tiktok.com/@ssmiliukova', instagram:'https://instagram.com/ssmiliukova', youtube:'https://youtube.com/@ssmiliukova', telegram:'https://t.me/ssmiliukova' } },
+
+  { name:'Аня', handle:'@nikolya121', city:'msk', geo:'Москва',
+    niches:'Бьюти · мода · укладки · обзоры · влоги · разговорный',
+    tags:['beauty','fashion','hair'], portrait:'nikolya121.jpg', stats:{ tiktok:'5K', tiktokViews:'5.7K' },
+    links:{ tiktok:'https://tiktok.com/@nikolya121', telegram:'https://t.me/NIKOLAFASHION' } },
+
+  { name:'Ирина', handle:'@orakul5', city:'spb', geo:'Санкт-Петербург',
+    niches:'Бьюти · влоги · разговорный',
+    tags:['beauty'], portrait:'orakul5.jpg', stats:{ tiktok:'26K', tiktokViews:'10.4K' },
+    links:{ tiktok:'https://tiktok.com/@0rakul5', telegram:'https://t.me/orakul5' } },
+
+  { name:'Мария', handle:'@massrightt', city:'spb', geo:'Санкт-Петербург',
+    niches:'Мода · UGC · разговорный',
+    tags:['fashion','ugc'], portrait:'massrightt.jpg', stats:{ tiktok:'10.9K', tiktokViews:'3.2K' },
+    links:{ tiktok:'https://tiktok.com/@massrightt', telegram:'https://t.me/massrightt' } },
+];
+
+const AGENT = 'https://t.me/lelinajj';                 // куда ведёт «статистика и прайс»
+const TINTS = ['#E8E3E5','#E4E7E3','#E2E5E9','#E9E6E1']; // мягкие фоны заглушек
+const PLATFORMS = [                                     // порядок и подписи кнопок
+  ['tiktok','TikTok'], ['instagram','Instagram'], ['youtube','YouTube'], ['telegram','Telegram']
+];
+
+const grid = document.getElementById('grid');
+const countEl = document.getElementById('count');
+let nicheF = 'all', cityF = 'all';
+
+function cardHTML(b, i){
+  const portrait = b.portrait
+    ? `<img src="${b.portrait}" alt="${b.name}">`
+    : `<span class="mono">${b.name.trim().charAt(0)}</span>`;
+
+  const s = b.stats || {};
+  const statRows = [];
+  const addRow = (label, fol, views) => {
+    if(!fol) return;
+    let h = `<span class="plat">${label}</span> <b>${fol}</b>`;
+    if(views) h += ` <span class="sv">· ср. просмотры <b>${views}</b></span>`;
+    statRows.push(`<div class="stat-row">${h}</div>`);
+  };
+  addRow('TikTok', s.tiktok, s.tiktokViews);
+  addRow('IG', s.instagram, s.instagramViews);
+  addRow('YouTube', s.youtube, s.youtubeViews);
+  const stats = statRows.length ? `<div class="stats">${statRows.join('')}</div>` : '';
+
+  const links = PLATFORMS
+    .filter(([k]) => b.links && b.links[k])
+    .map(([k,label]) => `<a class="lnk" href="${b.links[k]}" target="_blank" rel="noopener">${label}<span class="ext">↗</span></a>`)
+    .join('');
+
+  return `<article class="card" data-tags="${b.tags.join(' ')}" data-city="${b.city}" style="animation-delay:${Math.min(i*0.05,0.4)}s">
+    <div class="portrait" style="--tint:${TINTS[i % TINTS.length]}">${portrait}</div>
+    <div class="slip">
+      <div class="who"><h3 class="name">${b.name}</h3><span class="handle">${b.handle}</span></div>
+      <div class="geo">${b.geo}</div>
+      <p class="niches">${b.niches}</p>
+      ${stats}
+      <div class="links">${links}</div>
+      <a class="req" href="${AGENT}" target="_blank" rel="noopener">Статистика и прайс →</a>
+    </div>
+  </article>`;
+}
+
+function render(){
+  grid.innerHTML = BLOGGERS.map(cardHTML).join('');
+  applyFilters();
+}
+
+function applyFilters(){
+  let shown = 0;
+  grid.querySelectorAll('.card').forEach(card=>{
+    const tags = card.dataset.tags.split(' ');
+    const okNiche = nicheF === 'all' || tags.includes(nicheF);
+    const okCity  = cityF  === 'all' || card.dataset.city === cityF;
+    const ok = okNiche && okCity;
+    card.classList.toggle('hide', !ok);
+    if(ok) shown++;
+  });
+  countEl.textContent = `Показано: ${shown} из ${BLOGGERS.length}`;
+}
+
+document.getElementById('filters').addEventListener('click', e=>{
+  const chip = e.target.closest('.chip');
+  if(!chip) return;
+  document.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  chip.classList.add('active');
+  nicheF = chip.dataset.niche;
+  applyFilters();
+});
+document.getElementById('city').addEventListener('change', e=>{ cityF = e.target.value; applyFilters(); });
+
+render();
+</script>
+</body>
+</html>
